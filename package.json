@@ -1,0 +1,26 @@
+{
+  "name": "skype-history-daemon",
+  "version": "0.0.1",
+  "description": "Skype history daemon",
+  "keywords": [
+    "skype"
+  ],
+  "licence": "MIT",
+  "author": "Stanisav Yadykin <tosick@tosick.net>",
+  "repository": "https://github.com/syadykin/skype-history-daemon.git",
+  "dependencies": {
+    "async": "0.9.x",
+    "inotify": "^1.2.1",
+    "socket.io-client": "^1.2.0",
+    "sqlite3": "^3.0.2"
+  },
+  "devDependencies": {
+  },
+  "scripts": {
+    "start": "node daemon.js"
+  },
+  "engines": {
+    "node": ">=0.10.3 <0.12"
+  },
+  "private": false
+}
