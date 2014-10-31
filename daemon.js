@@ -59,15 +59,15 @@ function onChange(cb) {
           params.$id = lastId;
           params.$time = lastTimestamp;
         } else {
-          q += " ORDER BY id DESC LIMIT 1";
+          q += " ORDER BY id DESC LIMIT 100";
         }
 
         db.each(q, params, function (err, row) {
           if (err) return cb(err);
           row.guid = row.guid.toString('hex');
-          if (lastId) data.push(row);
-
           lastId = Math.max(lastId, row.id);
+          data.push(row);
+
           lastTimestamp = Math.max(row.timestamp, row.edited_timestamp ||
               row.timestamp);
 
