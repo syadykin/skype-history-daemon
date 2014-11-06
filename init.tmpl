@@ -1,0 +1,16 @@
+description "skype history daemon"
+
+start on started networking
+stop on runlevel [016]
+
+setuid <%= pkg.deploy[grunt.shipit.stage].user %>
+
+limit nofile 1000000 1000000
+
+console log
+
+script
+  nodejs <%= grunt.shipit.config.deployTo %>/current/daemon.js
+end script
+
+respawn

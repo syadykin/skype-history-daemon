@@ -10,3 +10,7 @@ try {
   var config = require('./config_local');
   extend(module.exports, config);
 } catch(e) { }
+
+if (process.env.SKYPEDB !== undefined) {
+  module.exports.skypedb = process.env.SKYPEDB;
+}
