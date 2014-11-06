@@ -6,11 +6,14 @@ module.exports = {
   wait: 500
 };
 
+// deploy settings
+try {
+  var config = require('../config');
+  extend(module.exports, config);
+} catch(e) { }
+
+// local dev settings
 try {
   var config = require('./config_local');
   extend(module.exports, config);
 } catch(e) { }
-
-if (process.env.SKYPEDB !== undefined) {
-  module.exports.skypedb = process.env.SKYPEDB;
-}
